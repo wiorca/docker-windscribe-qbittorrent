@@ -3,7 +3,7 @@
 FROM wiorca/docker-windscribe:latest
 
 # Version
-ARG VERSION=0.0.3
+ARG VERSION=0.0.4
 
 # Expose the webadmin port for qBittorrent
 EXPOSE 8080/tcp
@@ -19,6 +19,7 @@ RUN echo "deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubunt
     apt -y autoremove && apt -y clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add in scripts for health check and start-up
+ADD qBittorrent.conf /opt/defaults/qBittorrent.conf
 ADD app-health-check.sh /opt/scripts/app-health-check.sh
 ADD app-startup.sh /opt/scripts/app-startup.sh
 ADD app-setup.sh /opt/scripts/app-setup.sh

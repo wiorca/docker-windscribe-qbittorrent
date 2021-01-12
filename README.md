@@ -32,6 +32,7 @@ docker create \
   -e WINDSCRIBE_LOCATION=US \
   -e WINDSCRIBE_LANBYPASS=on \
   -e WINDSCRIBE_FIREWALL=on \
+  -e VPN_PORT=8080
   -v /location/on/host:/config \
   -v /location/elsewhere:/data \
   --dns 8.8.8.8 \
@@ -61,10 +62,10 @@ services:
       - WINDSCRIBE_PASSWORD=password
       - WINDSCRIBE_PROTOCOL=stealth
       - WINDSCRIBE_PORT=80
-      - WINDSCRIBE_PORT_FORWARD=9999
       - WINDSCRIBE_LOCATION=US
       - WINDSCRIBE_LANBYPASS=on
       - WINDSCRIBE_FIREWALL=on
+      - VPN_PORT=9999
     volumes:
       - /location/on/host:/config
       - /location/on/host:/data
@@ -98,6 +99,7 @@ The following parameters are inhereted from the parent container:
 | WINDSCRIBE_LOCATION | US | The location to connect to, which must be on 'windscribe location' list |
 | WINDSCRIBE_LANBYPASS | on, off | Allow other applications on the docker bridge to connect to this container if on |
 | WINDSCRIBE_FIREWALL | on, off | Enable the windscribe firewall if on, which is recommended. |
+| VPN_PORT | 9898 | The port you have configured to forward via windscribe. Not used by this container, but made available |
 
 ## Volumes
 
