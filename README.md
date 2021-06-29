@@ -4,6 +4,12 @@ A derivative of wiorca/docker-windscribe that provides qBittorrent services.
 
 NOTE: You will need to provide the configuration of qbittorrent.  I do not provide a default configuration that points to /data.  It will make your life easier if the paths inside your torrent client (/data) lines up with your other images.  I provide /data for torrents/downloads by default.  If you need to add/modify, then feel free to do so to your hearts content.  Just be consistant, to make your life easier.
 
+## Deprecated
+
+I do plan to keep updating this, but I would recommend using other images with the base docker-windscribe client instead.  You can then use the network of the windscribe container.
+
+--net=container:[docker-windscribe-continer-name]
+
 ## About the image
 
 Windscribe docker container that provides qbittorrent services.  It's a minimalst image that provides very little configuration out of the box.  The default password for the web UI will be printed to the docker console, but as of the time of writing it was usernsme: admin and password: adminadmin.
